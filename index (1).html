@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midsommar på Södra Stavsudda 🌸</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+  :root{
+    --sky:#aee0f0;
+    --sky-deep:#7cc5dd;
+    --water:#3a7ca5;
+    --water-deep:#2c5d7c;
+    --meadow:#8cba51;
+    --meadow-deep:#5d8233;
+    --sun:#ffd24a;
+    --sun-deep:#f4a93a;
+    --poppy:#e0506b;
+    --corn:#4763c4;
+    --daisy-white:#fffdf6;
+    --cream:#fef9ec;
+    --ink:#243b2f;
+    --ink-soft:#4a6354;
+    --shadow:rgba(36,59,47,.12);
+    --card:#fffdf6;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  body{
+    font-family:'Outfit',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:78vh;
+    background:linear-gradient(180deg,var(--sky) 0%,#c8e9f2 45%,#dff0e3 100%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 20px 120px;
+    overflow:hidden;
+  }
+  .sun{
+    position:absolute;
+    top:8%;left:50%;
+    transform:translateX(-50%);
+    width:160px;height:160px;
+    border-radius:50%;
+    background:radial-gradient(circle,var(--sun) 0%,var(--sun-deep) 75%);
+    box-shadow:0 0 80px 30px rgba(255,210,74,.5);
+    animation:bob 7s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-14px);}}
+
+  .hero-content{position:relative;z-index:3;}
+  .eyebrow{
+    font-family:'Outfit';
+    text-transform:uppercase;
+    letter-spacing:.42em;
+    font-size:.78rem;
+    font-weight:600;
+    color:var(--water-deep);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:clamp(2.8rem,9vw,6.5rem);
+    line-height:.95;
+    color:var(--ink);
+    text-shadow:0 3px 0 rgba(255,255,255,.5);
+  }
+  .hero h1 .squiggle{color:var(--poppy);font-style:italic;}
+  .hero .dates{
+    margin-top:22px;
+    font-size:clamp(1rem,2.5vw,1.4rem);
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .hero .dates b{color:var(--meadow-deep);}
+
+  /* flower wreath of emoji floating */
+  .petal{position:absolute;font-size:1.8rem;animation:float 9s ease-in-out infinite;opacity:.9;z-index:2;}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-22px) rotate(12deg);}}
+
+  /* water + maypole silhouette at bottom of hero */
+  .waves{
+    position:absolute;bottom:0;left:0;width:100%;height:130px;z-index:1;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,253,246,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:2px solid rgba(140,186,81,.4);
+    display:flex;gap:6px;justify-content:center;flex-wrap:wrap;
+    padding:12px 10px;
+  }
+  nav a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-weight:600;
+    font-size:.9rem;
+    padding:7px 14px;
+    border-radius:20px;
+    transition:all .2s;
+    white-space:nowrap;
+  }
+  nav a:hover{background:var(--meadow);color:#fff;}
+
+  /* ---------- LAYOUT ---------- */
+  section{
+    max-width:980px;
+    margin:0 auto;
+    padding:62px 22px 18px;
+  }
+  .section-head{
+    display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:clamp(1.8rem,5vw,2.8rem);
+    color:var(--ink);
+  }
+  .section-head .emoji{font-size:2rem;}
+  .section-intro{color:var(--ink-soft);margin-bottom:26px;max-width:680px;}
+
+  .card{
+    background:var(--card);
+    border-radius:20px;
+    padding:26px;
+    box-shadow:0 10px 30px var(--shadow);
+    border:1px solid rgba(140,186,81,.18);
+    margin-bottom:20px;
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown-wrap{
+    background:linear-gradient(135deg,var(--meadow-deep),var(--meadow));
+    color:#fff;text-align:center;
+    border-radius:24px;padding:34px 24px;
+    box-shadow:0 14px 40px rgba(93,130,51,.35);
+  }
+  .countdown-wrap .label{text-transform:uppercase;letter-spacing:.3em;font-size:.78rem;opacity:.85;}
+  .countdown-wrap.alt{background:linear-gradient(135deg,var(--water-deep),var(--water));box-shadow:0 14px 40px rgba(44,93,124,.35);}
+  .cd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+  .cd-time-big{font-family:'Fraunces';font-weight:900;font-size:1.7rem;margin:10px 0 4px;}
+  .cd-timer{display:flex;gap:14px;justify-content:center;margin:20px 0 8px;flex-wrap:wrap;}
+  .cd-unit{background:rgba(255,255,255,.16);border-radius:14px;padding:14px 18px;min-width:78px;}
+  .cd-num{font-family:'Fraunces';font-weight:900;font-size:2.2rem;line-height:1;}
+  .cd-cap{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;opacity:.85;margin-top:5px;}
+
+  /* ---------- MATCH ---------- */
+  .match{
+    background:linear-gradient(135deg,#0b3d70,#1763b0);
+    color:#fff;border-radius:24px;padding:30px;text-align:center;
+    box-shadow:0 14px 40px rgba(11,61,112,.4);
+    position:relative;overflow:hidden;
+  }
+  .match::after{content:"⚽";position:absolute;right:-10px;bottom:-14px;font-size:7rem;opacity:.12;transform:rotate(-15deg);}
+  .match .vs{display:flex;align-items:center;justify-content:center;gap:18px;margin:14px 0;flex-wrap:wrap;}
+  .match .team{font-family:'Fraunces';font-weight:900;font-size:clamp(1.4rem,5vw,2.4rem);}
+  .match .flag{font-size:2.4rem;}
+  .match .mid{font-size:1.1rem;opacity:.8;font-weight:700;}
+  .match .when{font-size:1.05rem;margin-top:6px;}
+  .match .when b{color:var(--sun);}
+  .match .tag{display:inline-block;margin-top:14px;background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-size:.85rem;}
+
+  /* ---------- TASK / CHECK LISTS ---------- */
+  .progress-bar{
+    height:14px;background:rgba(140,186,81,.2);border-radius:10px;overflow:hidden;margin:6px 0 22px;
+  }
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--sun),var(--meadow));width:0;transition:width .5s;}
+  .progress-text{font-size:.85rem;color:var(--ink-soft);font-weight:600;margin-bottom:4px;}
+
+  .task{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:13px 14px;border-radius:14px;
+    transition:background .2s;border:1px solid transparent;
+  }
+  .task:hover{background:rgba(140,186,81,.07);}
+  .task.done{opacity:.55;}
+  .task.done .task-title{text-decoration:line-through;}
+  .checkbox{
+    flex-shrink:0;width:24px;height:24px;border-radius:7px;border:2.5px solid var(--meadow);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:.9rem;color:#fff;transition:all .15s;background:#fff;margin-top:1px;
+  }
+  .task.done .checkbox{background:var(--meadow-deep);border-color:var(--meadow-deep);}
+  .task-body{flex:1;min-width:0;}
+  .task-title{font-weight:600;}
+  .task-meta{font-size:.82rem;color:var(--ink-soft);margin-top:2px;}
+  .pill{
+    display:inline-block;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:20px;
+    text-transform:uppercase;letter-spacing:.04em;margin-left:6px;vertical-align:middle;
+  }
+  .pill.klart{background:#d6efc8;color:#3c6b1f;}
+  .pill.pagaende{background:#fde7b0;color:#9a6a10;}
+  .pill.ejklart{background:#f6d3da;color:#a83a52;}
+  .pill.team{background:#cfe3f5;color:#1f5689;}
+
+  .note-input{
+    width:100%;border:1px dashed rgba(140,186,81,.5);border-radius:10px;
+    padding:6px 10px;font-family:inherit;font-size:.85rem;color:var(--ink);
+    margin-top:8px;background:rgba(255,255,255,.6);resize:vertical;min-height:34px;
+  }
+  .note-input:focus{outline:none;border-color:var(--meadow);background:#fff;}
+
+  .add-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .add-row input{
+    flex:1;min-width:160px;border:2px solid rgba(140,186,81,.35);border-radius:12px;
+    padding:10px 14px;font-family:inherit;font-size:.92rem;
+  }
+  .add-row input:focus{outline:none;border-color:var(--meadow);}
+  .btn{
+    background:var(--meadow-deep);color:#fff;border:none;border-radius:12px;
+    padding:10px 20px;font-family:inherit;font-weight:600;font-size:.92rem;cursor:pointer;transition:transform .12s,background .2s;
+  }
+  .btn:hover{background:var(--meadow);transform:translateY(-1px);}
+  .btn.ghost{background:transparent;color:var(--ink-soft);border:2px solid rgba(140,186,81,.4);}
+  .btn.ghost:hover{background:rgba(140,186,81,.1);color:var(--ink);}
+  .btn-del{background:none;border:none;color:#c46;cursor:pointer;font-size:1.1rem;opacity:.4;transition:opacity .2s;padding:0 4px;}
+  .task:hover .btn-del{opacity:1;}
+
+  /* ---------- TEAMS ---------- */
+  .teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  .team-card{border-radius:20px;padding:24px;color:#fff;position:relative;overflow:hidden;}
+  .team-card h3{font-family:'Fraunces';font-size:1.5rem;margin-bottom:4px;}
+  .team-card .duty{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;opacity:.9;margin-bottom:14px;}
+  .team-card .house{font-size:.92rem;opacity:.92;margin-bottom:14px;font-style:italic;}
+  .team-card ul{list-style:none;}
+  .team-card li{padding:5px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:.95rem;}
+  .team-card li:last-child{border:none;}
+  .t1{background:linear-gradient(140deg,#e0506b,#b83a55);}
+  .t2{background:linear-gradient(140deg,#4763c4,#314a9c);}
+  .t3{background:linear-gradient(140deg,#f4a93a,#d68420);}
+  .team-card .emoji-big{position:absolute;right:-12px;top:-12px;font-size:5rem;opacity:.18;}
+
+  /* ---------- INFO accordions ---------- */
+  .acc{border-radius:14px;overflow:hidden;margin-bottom:10px;border:1px solid rgba(140,186,81,.25);}
+  .acc-head{
+    background:rgba(140,186,81,.1);padding:15px 18px;cursor:pointer;
+    font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  .acc-head:hover{background:rgba(140,186,81,.18);}
+  .acc-head .arrow{transition:transform .25s;color:var(--meadow-deep);font-size:1.1rem;}
+  .acc.open .arrow{transform:rotate(90deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease;background:#fff;}
+  .acc.open .acc-body{max-height:900px;}
+  .acc-body-inner{padding:18px;font-size:.93rem;color:var(--ink-soft);}
+  .acc-body-inner a{color:var(--water);}
+  .acc-body-inner strong{color:var(--ink);}
+
+  /* ---------- SONGS ---------- */
+  .song{
+    background:#fff;border-radius:16px;padding:0;margin-bottom:12px;overflow:hidden;
+    border:1px solid rgba(224,80,107,.25);
+  }
+  .song-head{
+    background:linear-gradient(90deg,rgba(224,80,107,.12),rgba(255,210,74,.12));
+    padding:14px 18px;cursor:pointer;font-weight:700;font-family:'Fraunces';font-size:1.15rem;
+    display:flex;justify-content:space-between;align-items:center;color:var(--poppy);
+  }
+  .song-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .song.open .song-body{max-height:600px;}
+  .song-lyrics{padding:16px 20px;white-space:pre-line;font-size:.96rem;line-height:1.7;color:var(--ink);}
+  .song-note{font-size:.8rem;color:var(--ink-soft);font-style:italic;padding:0 20px 14px;}
+
+  /* ---------- BEER METER ---------- */
+  .beer-layout{display:grid;grid-template-columns:minmax(220px,1fr) 1.3fr;gap:20px;align-items:start;}
+  .beer-tower-card{text-align:center;}
+  .beer-ceiling{font-weight:700;color:var(--poppy);font-size:.9rem;letter-spacing:.05em;margin-bottom:10px;}
+  .beer-tower{
+    position:relative;height:340px;width:130px;margin:0 auto;
+    background:linear-gradient(180deg,#fffefb,#f3ead2);
+    border:4px solid var(--sun-deep);border-radius:18px 18px 14px 14px;
+    overflow:hidden;box-shadow:inset 0 4px 14px rgba(0,0,0,.08);
+  }
+  .beer-fill{
+    position:absolute;bottom:0;left:0;width:100%;height:0%;
+    background:linear-gradient(180deg,#ffd24a,#f4a93a 60%,#e8951f);
+    transition:height .7s cubic-bezier(.34,1.4,.64,1);
+  }
+  .beer-foam{
+    position:absolute;top:-9px;left:0;width:100%;height:16px;
+    background:repeating-radial-gradient(circle at 10px 8px,#fffefb 0 7px,transparent 7px 11px);
+    background-size:20px 16px;background-color:#fffdf6;border-radius:50%;
+  }
+  .beer-bubbles span{position:absolute;bottom:0;background:rgba(255,255,255,.6);border-radius:50%;animation:rise linear infinite;}
+  @keyframes rise{0%{transform:translateY(0);opacity:0;}20%{opacity:.8;}100%{transform:translateY(-300px);opacity:0;}}
+  .beer-total-overlay{position:absolute;top:50%;left:0;width:100%;transform:translateY(-50%);z-index:3;pointer-events:none;
+    text-shadow:0 1px 3px rgba(255,255,255,.7);}
+  .beer-total-num{font-family:'Fraunces';font-weight:900;font-size:2.6rem;color:var(--ink);line-height:1;}
+  .beer-total-cap{font-size:.78rem;font-weight:600;color:var(--ink-soft);}
+  .beer-status{margin-top:14px;font-weight:600;font-size:1.05rem;min-height:1.4em;transition:color .3s;}
+  .beer-tower.maxed{animation:wobble .5s ease;}
+  @keyframes wobble{0%,100%{transform:rotate(0);}25%{transform:rotate(-3deg);}75%{transform:rotate(3deg);}}
+
+  .beer-me label{font-size:.85rem;color:var(--ink-soft);font-weight:600;display:block;margin-bottom:6px;}
+  .beer-me select{width:100%;border:2px solid rgba(140,186,81,.35);border-radius:12px;padding:11px 14px;font-family:inherit;font-size:.98rem;background:#fff;cursor:pointer;margin-bottom:14px;}
+  .beer-me select:focus{outline:none;border-color:var(--meadow);}
+  .beer-my-count{display:flex;flex-direction:column;align-items:center;margin-bottom:16px;}
+  .beer-my-count span{font-family:'Fraunces';font-weight:900;font-size:2.8rem;line-height:1;color:var(--ink);}
+  .beer-my-count small{font-size:.74rem;color:var(--ink-soft);}
+  .beer-drinks{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .drink-btn{display:flex;flex-direction:column;align-items:center;gap:2px;border:none;border-radius:14px;padding:14px 8px;font-family:inherit;font-weight:700;font-size:1.05rem;color:#fff;cursor:pointer;transition:transform .1s;}
+  .drink-btn:active{transform:scale(.94);}
+  .drink-btn small{font-size:.72rem;font-weight:600;opacity:.9;}
+  .drink-btn.beer{background:var(--sun-deep);}
+  .drink-btn.wine{background:#9c2c4b;}
+  .drink-btn.grog{background:#b5651d;}
+  .drink-btn.undo{background:#c9b89a;color:var(--ink);}
+  .beer-board-title{font-weight:700;margin:22px 0 10px;font-size:1rem;}
+  .beer-board{display:flex;flex-direction:column;gap:6px;}
+  .beer-row{display:flex;align-items:center;gap:10px;font-size:.95rem;}
+  .beer-row .rank{width:24px;text-align:center;}
+  .beer-row .nm{flex:1;font-weight:600;}
+  .beer-row .bar{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--sun),var(--sun-deep));min-width:6px;}
+  .beer-row .ct{font-weight:700;width:42px;text-align:right;}
+  .beer-empty{color:var(--ink-soft);font-style:italic;font-size:.9rem;}
+  @media(max-width:640px){.beer-layout{grid-template-columns:1fr;}}
+
+  /* ---------- SHARE / toolbar ---------- */
+  .toolbar{
+    position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:#fff;border-radius:30px;padding:10px 16px;
+    display:flex;gap:12px;align-items:center;z-index:60;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);font-size:.85rem;flex-wrap:wrap;justify-content:center;max-width:94vw;
+  }
+  .toolbar button{
+    background:var(--sun);color:var(--ink);border:none;border-radius:20px;
+    padding:7px 14px;font-family:inherit;font-weight:600;cursor:pointer;font-size:.82rem;
+  }
+  .toolbar button.alt{background:rgba(255,255,255,.18);color:#fff;}
+  .toolbar .who{display:flex;align-items:center;gap:6px;}
+  .toolbar input{
+    background:rgba(255,255,255,.14);border:none;border-radius:14px;color:#fff;
+    padding:5px 10px;font-family:inherit;font-size:.82rem;width:96px;
+  }
+  .toolbar input::placeholder{color:rgba(255,255,255,.55);}
+
+  footer{text-align:center;padding:50px 20px 110px;color:var(--ink-soft);font-size:.88rem;}
+  footer .heart{color:var(--poppy);}
+
+  .toast{
+    position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--meadow-deep);color:#fff;padding:12px 22px;border-radius:30px;
+    font-weight:600;font-size:.9rem;opacity:0;pointer-events:none;transition:all .3s;z-index:70;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media(max-width:600px){
+    section{padding:46px 16px 14px;}
+    .card{padding:20px;}
+    nav{gap:2px;}
+    nav a{font-size:.8rem;padding:6px 9px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="sun"></div>
+  <span class="petal" style="top:18%;left:12%;animation-delay:0s;">🌼</span>
+  <span class="petal" style="top:30%;left:84%;animation-delay:1.2s;">🌸</span>
+  <span class="petal" style="top:62%;left:8%;animation-delay:2.1s;">🌿</span>
+  <span class="petal" style="top:14%;left:70%;animation-delay:.6s;">🌺</span>
+  <span class="petal" style="top:55%;left:90%;animation-delay:1.7s;">🌻</span>
+  <span class="petal" style="top:70%;left:30%;animation-delay:2.6s;">🌷</span>
+  <div class="hero-content">
+    <div class="eyebrow">17–20 Juni · Stockholms skärgård</div>
+    <h1>Midsommar på<br><span class="squiggle">Södra Stavsudda</span></h1>
+    <p class="dates">Stort härligt kompisgäng · tre stugor · <b>en oförglömlig helg</b></p>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 130" preserveAspectRatio="none">
+    <path fill="#7cc5dd" fill-opacity="0.6" d="M0,64 C240,110 480,20 720,52 C960,84 1200,30 1440,60 L1440,130 L0,130 Z"></path>
+    <path fill="#3a7ca5" d="M0,88 C240,40 480,120 720,86 C960,52 1200,118 1440,82 L1440,130 L0,130 Z"></path>
+  </svg>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="#nedrakning">⏳ Nedräkning</a>
+  <a href="#match">⚽ VM-matchen</a>
+  <a href="#lag">🏠 Lagen</a>
+  <a href="#uppgifter">✅ Uppgifter</a>
+  <a href="#packlista">🎒 Packlista</a>
+  <a href="#info">ℹ️ Info & resa</a>
+  <a href="#fyllematare">🍺 Fyllemätare</a>
+  <a href="#sanger">🎶 Snapsvisor</a>
+</nav>
+
+<!-- ===== COUNTDOWN ===== -->
+<section id="nedrakning">
+  <div class="section-head"><span class="emoji">⏳</span><h2>Nedräkning</h2></div>
+  <p class="section-intro">Två båttaxiavgångar på torsdagen — sikta på den som passar dig! Avgång mot "familjen Olssons brygga", Södra Stavsudda.</p>
+  <div class="cd-grid">
+    <div class="countdown-wrap">
+      <div class="label">🚤 Båttaxi 1 · Torsdag 18 juni</div>
+      <div class="cd-time-big">kl 11:00</div>
+      <div class="cd-timer" id="cdTimer1"></div>
+    </div>
+    <div class="countdown-wrap alt">
+      <div class="label">🚤 Båttaxi 2 · Torsdag 18 juni</div>
+      <div class="cd-time-big">kl 13:10</div>
+      <div class="cd-timer" id="cdTimer2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MATCH ===== -->
+<section id="match">
+  <div class="section-head"><span class="emoji">⚽</span><h2>Sverige i VM</h2></div>
+  <p class="section-intro">Mitt under midsommardagen spelar Blågult sin andra gruppspelsmatch. Ta med dator och högtalare — det här ska ses tillsammans!</p>
+  <div class="match">
+    <div class="mid">Grupp F · VM 2026 · USA</div>
+    <div class="vs">
+      <span class="flag">🇳🇱</span>
+      <span class="team">Nederländerna</span>
+      <span class="mid">vs</span>
+      <span class="team">Sverige</span>
+      <span class="flag">🇸🇪</span>
+    </div>
+    <div class="when">Lördag <b>20 juni</b> · avspark <b>kl 19:00</b> svensk tid · NRG Stadium, Houston</div>
+    <div class="tag">📺 Sänds på TV4 · samma dag som midsommardagen ☀️</div>
+  </div>
+  <p style="text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:12px;">
+    Sveriges övriga gruppmatcher: 🇸🇪–🇹🇳 Tunisien 15 juni · 🇯🇵 Japan–🇸🇪 26 juni
+  </p>
+</section>
+
+<!-- ===== TEAMS ===== -->
+<section id="lag">
+  <div class="section-head"><span class="emoji">🏠</span><h2>Lagen & boende</h2></div>
+  <p class="section-intro">Tre stugor, tre lag, tre ansvarsområden. Varje lag sköter planering, inköp, tillagning och grovdisk för sina måltider.</p>
+  <div class="teams">
+    <div class="team-card t1">
+      <span class="emoji-big">🥪</span>
+      <h3>Lag 1</h3>
+      <div class="duty">Lunch & snacks</div>
+      <div class="house">Brygghuset · 5 bädd</div>
+      <ul><li>Melissa</li><li>Anton</li><li>Hotz</li><li>Martin</li><li>Josefin</li></ul>
+    </div>
+    <div class="team-card t2">
+      <span class="emoji-big">🍽️</span>
+      <h3>Lag 2</h3>
+      <div class="duty">Middag</div>
+      <div class="house">Strandhuset · 4 bädd</div>
+      <ul><li>Elicia</li><li>Jalle</li><li>Ellen</li><li>Alex</li></ul>
+    </div>
+    <div class="team-card t3">
+      <span class="emoji-big">☕</span>
+      <h3>Lag 3</h3>
+      <div class="duty">Frukost & fika</div>
+      <div class="house">Sommarstugan · 4 bädd</div>
+      <ul><li>Racki</li><li>Jacob</li><li>Markus</li><li>Hanna</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TASKS ===== -->
+<section id="uppgifter">
+  <div class="section-head"><span class="emoji">✅</span><h2>Uppgifter</h2></div>
+  <p class="section-intro">Signa upp dig på det du känner ett kall att bidra med! Bocka av, ändra anteckningar och lägg till nya rader — allt sparas i din webbläsare.</p>
+  <div class="card">
+    <div class="progress-text" id="taskProgressText">0 av 0 klara</div>
+    <div class="progress-bar"><div class="progress-fill" id="taskProgress"></div></div>
+    <div id="taskList"></div>
+    <div class="add-row">
+      <input type="text" id="newTask" placeholder="Lägg till en ny uppgift…">
+      <button class="btn" onclick="addTask()">+ Lägg till</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACKING ===== -->
+<section id="packlista">
+  <div class="section-head"><span class="emoji">🎒</span><h2>Packlista</h2></div>
+  <p class="section-intro">Generell lista för alla. Packa i stora väskor eller IKEA-kassar — hjulväskor är knepiga i skogen till Waxholmsbåten!</p>
+  <div class="card">
+    <div class="progress-text" id="packProgressText">0 av 0 packade</div>
+    <div class="progress-bar"><div class="progress-fill" id="packProgress"></div></div>
+    <div id="packList"></div>
+    <div class="add-row">
+      <input type="text" id="newPack" placeholder="Lägg till något i packlistan…">
+      <button class="btn" onclick="addPack()">+ Lägg till</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFO ===== -->
+<section id="info">
+  <div class="section-head"><span class="emoji">ℹ️</span><h2>Info & resa</h2></div>
+  <p class="section-intro">Allt det praktiska. Klicka för att fälla ut.</p>
+
+  <div class="acc">
+    <div class="acc-head" onclick="toggleAcc(this)"><span>🚤 Så tar du dig dit</span><span class="arrow">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      Boka <strong>båttaxi</strong> (<a href="https://www.mojabattaxi.se/" target="_blank">mojabattaxi.se</a>) eller åk <strong>Waxholmsbåt</strong> från Sollenkroka brygga (ca 30 min) eller från Strömkajen (knappt 3 timmar).<br><br>
+      Till Sollenkroka kan du köra bil och parkera (kan vara tight — Melissa har kontakter) eller ta buss från Slussen. Båttaxi bokas till Södra Stavsudda, "familjen Olssons brygga" (200:-/resa).<br><br>
+      Från Waxholmsbåten går fina naturstigar till stugan, ca 10 min. Med båttaxi lägger du till direkt vid boendets egen brygga. Det finns dagliga Waxholmsbåtsturer till Möja (Berg).
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head" onclick="toggleAcc(this)"><span>🍳 Mat & måltider</span><span class="arrow">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      All mat behöver tas med — köken är pyttesmå, så håll måltiderna enkla och förbered hemma det som går! Vi turas om att laga och diska, helst i sitt eget lags stuga.<br><br>
+      <strong>Ingen affär på ön</strong>, bara presentboden Babbas (glass & enklare fika). På <strong>Möja (Berg)</strong> finns RÄKA, pizzeria, bageri, restauranger och en Coop med systembolagsombud. Midsommardagens lunch = <strong>räkfrossa på Möja!</strong> 🦐
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head" onclick="toggleAcc(this)"><span>🚿 Dusch, toa & bastu</span><span class="arrow">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      Dass eller förbränningstoalett (Cinderella ✨💩). Gemensam dusch med varmvatten ur egen brunn — <strong>snabbduscha gärna</strong>, vi tömde brunnen förra året! Eller bada i havet. Vedeldad bastu finns. 🔥
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head" onclick="toggleAcc(this)"><span>🧳 Packning & städning</span><span class="arrow">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      Packa i stora väskor, ryggsäck eller IKEA-kassar — hjulväskor är svåra i skogen. Undvik många små plastkassar och lösa flak (göm dem så Lasse & Eva inte får hjärtattack igen :') ).<br><br>
+      Vi städar själva: var och en sin stuga, och hjälps åt med gemensamma ytor innan hemfärd. Alla hjälps åt med sopsortering och håller ordning löpande — ägarna är på plats samtidigt.
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head" onclick="toggleAcc(this)"><span>🎉 Fester & kostnader</span><span class="arrow">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      Fester är ej tillåtna (woopsie 🙃) — så vi festar hårt där vi inte syns, och eventuella spyor sker på killarnas kissklippa! Gemensamma kostnader delas och läggs in i <strong>Splitwise</strong>.
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== BEER METER ===== -->
+<section id="fyllematare">
+  <div class="section-head"><span class="emoji">🍺</span><h2>Fyllemätaren</h2></div>
+  <p class="section-intro">Välj ditt namn och knappa in vad du dricker — vi fyller mätaren tillsammans! 🍺 öl = 1 · 🍷 vin = 1 · 🥃 grogg = 2 öl-enheter. När gänget når taket… ja, då har det hänt grejer. 🤪 Synkar live mellan alla.</p>
+
+  <div class="beer-layout">
+    <!-- Tower -->
+    <div class="card beer-tower-card">
+      <div class="beer-ceiling">🏠 TAKET <span id="beerCeilingNum">0</span> öl</div>
+      <div class="beer-tower">
+        <div class="beer-fill" id="beerFill">
+          <div class="beer-foam"></div>
+        </div>
+        <div class="beer-bubbles" id="beerBubbles"></div>
+        <div class="beer-total-overlay">
+          <div class="beer-total-num" id="beerTotalNum">0</div>
+          <div class="beer-total-cap">öl totalt 🍻</div>
+        </div>
+      </div>
+      <div class="beer-status" id="beerStatus">Nykter och redo 🌅</div>
+    </div>
+
+    <!-- Counters -->
+    <div class="card beer-people-card">
+      <div class="beer-me">
+        <label>Det är jag:</label>
+        <select id="beerNameInput">
+          <option value="">— välj ditt namn —</option>
+        </select>
+        <div class="beer-my-count">
+          <span id="myBeerCount">0</span><small>mina öl-enheter</small>
+        </div>
+        <div class="beer-drinks">
+          <button class="drink-btn beer" onclick="addDrink(1)">🍺 Öl<small>+1</small></button>
+          <button class="drink-btn wine" onclick="addDrink(1,'vin')">🍷 Vin<small>+1</small></button>
+          <button class="drink-btn grog" onclick="addDrink(2,'grogg')">🥃 Grogg<small>+2</small></button>
+          <button class="drink-btn undo" onclick="addDrink(-1)">↩︎ Ångra<small>−1</small></button>
+        </div>
+      </div>
+      <div class="beer-board-title">🏆 Läget i gänget</div>
+      <div id="beerBoard" class="beer-board"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SONGS ===== -->
+<section id="sanger">
+  <div class="section-head"><span class="emoji">🎶</span><h2>Snapsvisor</h2></div>
+  <p class="section-intro">Klassikerna alla kan. Klicka för texten — och höj glasen! (Melli fixar sånghäften, och servetterna har snapsvisor.)</p>
+  <div id="songList"></div>
+</section>
+
+<footer>
+  Byggd med <span class="heart">♥</span> inför midsommar 2026 · Södra Stavsudda<br>
+  <span style="font-size:.8rem;">🔄 Delad live-lista via Firebase: öppna länken i valfri webbläsare. Bockar någon av syns det för hela gänget direkt.</span>
+</footer>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <span class="who">👤 <input type="text" id="userName" placeholder="ditt namn" onchange="saveName()"></span>
+  <button onclick="shareLink()">🔗 Dela länk</button>
+  <button class="alt" onclick="resetAll()">↺ Nollställ</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Firebase SDK (compat-version, enkel att använda utan byggsteg) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+<script>
+/* =====================================================================
+   FIREBASE-CONFIG för projektet "midsommar-stavsudda".
+   Detta är ifyllt och klart. (En web-config är inte hemlig – den ligger
+   ändå synlig i webbkoden; säkerheten styrs av Realtime Database-reglerna.)
+   ===================================================================== */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBlNQ7gtDHFFVRjzGUza4xVh8YpKhBNH4Q",
+  authDomain: "midsommar-stavsudda.firebaseapp.com",
+  databaseURL: "https://midsommar-stavsudda-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "midsommar-stavsudda",
+  storageBucket: "midsommar-stavsudda.firebasestorage.app",
+  messagingSenderId: "737480003806",
+  appId: "1:737480003806:web:9381357d26483ddbfb324f"
+};
+/* ===================================================================== */
+</script>
+
+<script>
+/* ---------- DATA (från planeringsfilen) ---------- */
+const DEFAULT_TASKS = [
+  {t:"Bokning boende", s:"klart", who:"Hanna", note:"12 000 kr totalt"},
+  {t:"Bokning båttaxi dit", s:"klart", who:"Hanna", note:"200:-/resa · ring och boka asap!"},
+  {t:"Ev båttaxi hem / Waxholmsbåt", s:"ejklart", who:"@alla", note:""},
+  {t:"Lekar / 5-kamp midsommar", s:"pagaende", who:"Amanda & Jarl", note:"Kubb, jätteplockepinn, bollar finns där"},
+  {t:"Sånghäften", s:"pagaende", who:"Melli", note:""},
+  {t:"Ståltråd till kransar", s:"pagaende", who:"Hanna", note:""},
+  {t:"SOL-ansvarig", s:"klart", who:"Jacob", note:""},
+  {t:"Blommor till kransar", s:"pagaende", who:"Amanda Hotz", note:"Köpa med eller plocka där?"},
+  {t:"Sällskapsspel", s:"", who:"", note:""},
+  {t:"Duk", s:"pagaende", who:"Hanna", note:""},
+  {t:"Frukost + mimosas, disk midsommarafton", s:"", who:"Lag 3", note:""},
+  {t:"Frukost + disk midsommardagen", s:"", who:"Lag 3", note:""},
+  {t:"Frukost + disk hemfärdsdag", s:"", who:"Lag 3", note:""},
+  {t:"Lunch + disk midsommarafton", s:"pagaende", who:"Lag 1", note:"Andra lagen hjälper pynta & sätta ut mat"},
+  {t:"Lunch midsommardagen", s:"klart", who:"@alla", note:"Räkfrossa på Möja!"},
+  {t:"Lunch + disk hemfärdsdag", s:"pagaende", who:"Lag 1", note:"Rester eller köp på Waxholmsbåten"},
+  {t:"Middag + disk första kvällen", s:"", who:"Lag 2", note:""},
+  {t:"Middag + disk midsommarafton", s:"", who:"Lag 2", note:"Grill?"},
+  {t:"Middag + disk midsommardagen", s:"", who:"Lag 2", note:""},
+  {t:"Efterrätt + disk midsommarafton", s:"", who:"Lag 3", note:""},
+  {t:"Snacks / chark alla dagar", s:"pagaende", who:"Lag 1", note:""},
+  {t:"Soda Stream?", s:"pagaende", who:"Melli", note:"Istället för att frakta läsk"},
+  {t:"Städ hemfärd", s:"", who:"@alla", note:"Var och en sin stuga + gemensamt"},
+  {t:"Högtalare", s:"", who:"", note:""},
+  {t:"Dator", s:"", who:"", note:"Till VM-matchen!"},
+  {t:"Servetter midsommar", s:"pagaende", who:"Ellen", note:"De har snapsvisor!!"},
+];
+
+const DEFAULT_PACK = [
+  "Solglasögon","Keps","Mobil, laddare, powerbank","Solkräm","Badbyxor / bikini (bastu & bad)",
+  "Tröjor","Byxor","Varm tröja (stickad / hoodie till kvällen)","Varma sockor","Myskläder",
+  "Midsommarblåsa","Hygienartiklar","Underkläder","Sängkläder","Handduk","Myggmedel",
+  "Regnjacka (förhoppningsvis inte!)","Vanlig jacka","Bok","Allergimedicin","SNUS","Alkohol till hela helgen (egen dryck)"
+];
+
+const SONGS = [
+  {title:"Helan går", note:"Den självklara öppningen.",
+   lyrics:`Helan går
+Sjung hopp faderallan lallan lej
+Helan går
+Sjung hopp faderallan lej
+Och den som inte helan tar
+Han heller inte halvan får
+Helan går!
+Sjung hopp faderallan lej`},
+  {title:"Hej tomtegubbar (sommarversion)", note:"Klassikern funkar året om.",
+   lyrics:`Hej tomtegubbar slå i glasen
+Och låt oss lustiga vara
+Hej tomtegubbar slå i glasen
+Och låt oss lustiga vara
+En liten tid vi leva här
+Med mycken möda och stort besvär
+Hej tomtegubbar slå i glasen
+Och låt oss lustiga vara`},
+  {title:"Små grodorna", note:"Runt midsommarstången — obligatoriskt!",
+   lyrics:`Små grodorna, små grodorna
+är lustiga att se
+Små grodorna, små grodorna
+är lustiga att se
+Ej öron, ej öron, ej svansar hava de
+Ej öron, ej öron, ej svansar hava de
+Kou ack ack ack, kou ack ack ack
+kou ack ack ack ack kaa
+Kou ack ack ack, kou ack ack ack
+kou ack ack ack ack kaa`},
+  {title:"Nu ska vi äta", note:"Innan maten dukas fram.",
+   lyrics:`Nu ska vi äta
+alla goda gäster
+nu ska vi äta
+i vår gröna lund
+Vi ska intet glömma
+de som inte kommit
+Vi ska intet glömma
+de som inte kommit
+Skål och välkommen
+i vår gröna lund`},
+];
+
+/* ---------- STATE / FIREBASE SHARED STORAGE ---------- */
+const NAME_KEY = "stavsudda:name";     // personligt (bara din webbläsare)
+let state = { tasks:[], pack:[], name:"", beers:{} };
+let db = null;          // firebase database-referens
+let planRef = null;     // referens till /plan
+let beersRef = null;    // referens till /beers (egen gren för fyllemätaren)
+let applyingRemote = false;  // hindra eko när vi just tog emot data
+let saveTimer = null;
+
+function defaultState(){
+  return {
+    tasks: DEFAULT_TASKS.map(x=>({...x, done:x.s==="klart"})),
+    pack: DEFAULT_PACK.map(t=>({t, done:false}))
+  };
+}
+
+async function loadState(){
+  // personligt namn
+  try{ const n = sessionStorage.getItem(NAME_KEY); if(n) state.name=n; }catch(e){}
+
+  // koppla upp mot Firebase och lyssna live
+  try{
+    const app = firebase.initializeApp(FIREBASE_CONFIG);
+    db = firebase.database();
+    planRef = db.ref('plan');
+    beersRef = db.ref('beers');
+
+    // engångskoll: finns ingen plan än? seeda den.
+    const snap = await planRef.get();
+    if(!snap.exists()){
+      await planRef.set(defaultState());
+    }
+
+    // realtidslyssnare – alla ändringar från vem som helst landar här direkt
+    planRef.on('value', (s)=>{
+      const d = s.val();
+      if(!d) return;
+      if(anyNoteFocused()) return; // skriv inte över en anteckning du håller på med
+      applyingRemote = true;
+      state.tasks = d.tasks || [];
+      state.pack  = d.pack  || [];
+      renderTasks(); renderPack();
+      applyingRemote = false;
+    });
+
+    // fyllemätaren – egen gren, egen lyssnare
+    beersRef.on('value', (s)=>{
+      state.beers = s.val() || {};
+      renderBeer();
+    });
+  }catch(e){
+    // Firebase saknas/felkonfigurerad → kör lokalt så sidan ändå funkar
+    console.warn('Firebase ej tillgängligt, kör lokalt:', e);
+    const d = defaultState();
+    state.tasks = d.tasks; state.pack = d.pack;
+    showFirebaseWarning();
+  }
+}
+
+function save(){
+  if(applyingRemote) return;       // det här var en fjärrändring, spara inte tillbaka
+  if(!planRef) return;             // lokalt läge
+  // liten debounce så snabba klick inte spammar databasen
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(()=>{
+    planRef.set({tasks:state.tasks, pack:state.pack}).catch(err=>console.warn('Spara misslyckades:', err));
+  }, 250);
+}
+
+function anyNoteFocused(){
+  const el = document.activeElement;
+  return el && el.classList && el.classList.contains('note-input');
+}
+
+function showFirebaseWarning(){
+  const b=document.createElement('div');
+  b.style.cssText='background:#fde7b0;color:#9a6a10;padding:10px 16px;text-align:center;font-size:.85rem;font-weight:600;';
+  b.textContent='⚠️ Firebase inte inkopplat än – listan funkar men synkar inte mellan er förrän du klistrat in din config.';
+  document.body.insertBefore(b, document.body.firstChild);
+}
+
+/* ---------- RENDER TASKS ---------- */
+function statusPill(s){
+  if(s==="klart") return '<span class="pill klart">Klart</span>';
+  if(s==="pagaende") return '<span class="pill pagaende">Pågående</span>';
+  if(s==="ejklart") return '<span class="pill ejklart">Ej klart</span>';
+  return '';
+}
+function renderTasks(){
+  const list = document.getElementById('taskList');
+  list.innerHTML = '';
+  state.tasks.forEach((task,i)=>{
+    const div = document.createElement('div');
+    div.className = 'task'+(task.done?' done':'');
+    div.innerHTML = `
+      <div class="checkbox" onclick="toggleTask(${i})">${task.done?'✓':''}</div>
+      <div class="task-body">
+        <div class="task-title">${escapeHtml(task.t)} ${statusPill(task.s)}</div>
+        <div class="task-meta">${task.who?('👤 '+escapeHtml(task.who)):'<i>ingen ansvarig än</i>'}</div>
+        <textarea class="note-input" placeholder="Anteckning…" oninput="updateNote(${i}, this.value)">${escapeHtml(task.note||'')}</textarea>
+      </div>
+      <button class="btn-del" onclick="delTask(${i})" title="Ta bort">✕</button>`;
+    list.appendChild(div);
+  });
+  const done = state.tasks.filter(t=>t.done).length;
+  const tot = state.tasks.length;
+  document.getElementById('taskProgress').style.width = tot?(done/tot*100)+'%':'0';
+  document.getElementById('taskProgressText').textContent = `${done} av ${tot} klara`;
+}
+function toggleTask(i){ state.tasks[i].done=!state.tasks[i].done; if(state.tasks[i].done) state.tasks[i].s="klart"; save(); renderTasks(); }
+function updateNote(i,v){ state.tasks[i].note=v; save(); }
+function delTask(i){ state.tasks.splice(i,1); save(); renderTasks(); }
+function addTask(){
+  const inp=document.getElementById('newTask');
+  const v=inp.value.trim(); if(!v)return;
+  state.tasks.push({t:v,s:"",who:state.name||"",note:"",done:false});
+  inp.value=''; save(); renderTasks(); toast('Uppgift tillagd 🌼');
+}
+
+/* ---------- RENDER PACK ---------- */
+function renderPack(){
+  const list=document.getElementById('packList');
+  list.innerHTML='';
+  state.pack.forEach((p,i)=>{
+    const div=document.createElement('div');
+    div.className='task'+(p.done?' done':'');
+    div.innerHTML=`
+      <div class="checkbox" onclick="togglePack(${i})">${p.done?'✓':''}</div>
+      <div class="task-body"><div class="task-title">${escapeHtml(p.t)}</div></div>
+      <button class="btn-del" onclick="delPack(${i})" title="Ta bort">✕</button>`;
+    list.appendChild(div);
+  });
+  const done=state.pack.filter(p=>p.done).length, tot=state.pack.length;
+  document.getElementById('packProgress').style.width=tot?(done/tot*100)+'%':'0';
+  document.getElementById('packProgressText').textContent=`${done} av ${tot} packade`;
+}
+function togglePack(i){ state.pack[i].done=!state.pack[i].done; save(); renderPack(); }
+function delPack(i){ state.pack.splice(i,1); save(); renderPack(); }
+function addPack(){
+  const inp=document.getElementById('newPack'); const v=inp.value.trim(); if(!v)return;
+  state.pack.push({t:v,done:false}); inp.value=''; save(); renderPack(); toast('Tillagt i packlistan 🎒');
+}
+
+/* ---------- SONGS ---------- */
+function renderSongs(){
+  const list=document.getElementById('songList');
+  SONGS.forEach(s=>{
+    const div=document.createElement('div');
+    div.className='song';
+    div.innerHTML=`
+      <div class="song-head" onclick="this.parentNode.classList.toggle('open')">
+        <span>${escapeHtml(s.title)}</span><span>🍶</span></div>
+      <div class="song-body">
+        <div class="song-lyrics">${escapeHtml(s.lyrics)}</div>
+        ${s.note?`<div class="song-note">${escapeHtml(s.note)}</div>`:''}
+      </div>`;
+    list.appendChild(div);
+  });
+}
+
+/* ---------- INFO ACCORDION ---------- */
+function toggleAcc(el){ el.parentNode.classList.toggle('open'); }
+
+/* ---------- FYLLEMÄTAREN ---------- */
+const BEER_NAME_KEY = "stavsudda:beername";
+const BEERS_PER_PERSON_CEILING = 30; // tak per person i öl-enheter
+
+// alla i gänget (från lagindelningen)
+const ROSTER = [
+  "Melissa","Anton","Hotz","Martin","Josefin",
+  "Elicia","Jalle","Ellen","Alex",
+  "Racki","Jacob","Markus","Hanna"
+];
+
+function populateRoster(){
+  const sel = document.getElementById('beerNameInput');
+  if(!sel) return;
+  // behåll redan valt
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">— välj ditt namn —</option>' +
+    ROSTER.map(n=>`<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join('');
+  if(cur) sel.value = cur;
+}
+
+function myBeerName(){
+  const el = document.getElementById('beerNameInput');
+  return el ? (el.value || '').trim() : '';
+}
+function addDrink(units, label){
+  const name = myBeerName();
+  if(!name){
+    document.getElementById('beerNameInput').focus();
+    toast('Välj ditt namn först 🙂');
+    return;
+  }
+  try{ sessionStorage.setItem(BEER_NAME_KEY, name); }catch(e){}
+  const current = (state.beers && state.beers[name]) || 0;
+  const next = Math.max(0, current + units);
+  if(beersRef){
+    beersRef.child(name).set(next).catch(e=>console.warn('Öl-sparning fel:', e));
+  }else{
+    state.beers[name] = next; renderBeer(); // lokalt fallback
+  }
+  if(units>0){
+    const m = label==='vin' ? 'Skål i vin! 🍷' : label==='grogg' ? 'Grogg incoming! 🥃' : 'Skål! 🍻';
+    toast(m);
+  }
+}
+function renderBeer(){
+  const beers = state.beers || {};
+  const names = Object.keys(beers).filter(n=>beers[n]>0);
+  const total = names.reduce((a,n)=>a+(beers[n]||0),0);
+  const ceiling = ROSTER.length * BEERS_PER_PERSON_CEILING; // hela gänget × 30
+  const pct = Math.min(100, ceiling? (total/ceiling*100):0);
+
+  // tower
+  const fill = document.getElementById('beerFill');
+  if(fill) fill.style.height = pct + '%';
+  const tn = document.getElementById('beerTotalNum'); if(tn) tn.textContent = total;
+  const cn = document.getElementById('beerCeilingNum'); if(cn) cn.textContent = ceiling;
+
+  // bubbles
+  const bubbles = document.getElementById('beerBubbles');
+  if(bubbles && bubbles.childElementCount===0){
+    for(let i=0;i<8;i++){
+      const b=document.createElement('span');
+      const size=4+Math.random()*7;
+      b.style.cssText=`left:${8+Math.random()*84}%;width:${size}px;height:${size}px;animation-duration:${3+Math.random()*4}s;animation-delay:${Math.random()*4}s;`;
+      bubbles.appendChild(b);
+    }
+  }
+
+  // status text
+  const status = document.getElementById('beerStatus');
+  const tower = document.querySelector('.beer-tower');
+  if(status){
+    let msg, color=getComputedStyle(document.documentElement).getPropertyValue('--ink');
+    if(total===0){ msg='Nykter och redo 🌅'; }
+    else if(pct<25){ msg='Lätt uppvärmning 😎'; }
+    else if(pct<50){ msg='Stämningen stiger! 🎶'; color='var(--sun-deep)'; }
+    else if(pct<80){ msg='Nu är det fest! 🕺'; color='var(--poppy)'; }
+    else if(pct<100){ msg='Snart slår vi i taket… 😬'; color='var(--poppy)'; }
+    else { msg='🚨 TAKET ÄR NÅTT! Slå på högtalaren! 🍺🎉'; color='var(--poppy)'; }
+    status.textContent = msg; status.style.color = color;
+    if(pct>=100 && tower){ tower.classList.remove('maxed'); void tower.offsetWidth; tower.classList.add('maxed'); }
+  }
+
+  // leaderboard
+  const board = document.getElementById('beerBoard');
+  if(board){
+    if(names.length===0){
+      board.innerHTML = '<div class="beer-empty">Ingen har börjat än… vem tar första? 🍺</div>';
+    }else{
+      const max = Math.max(...names.map(n=>beers[n]));
+      const medals=['🥇','🥈','🥉'];
+      board.innerHTML = names.sort((a,b)=>beers[b]-beers[a]).map((n,i)=>`
+        <div class="beer-row">
+          <span class="rank">${medals[i]||(i+1)+'.'}</span>
+          <span class="nm">${escapeHtml(n)}</span>
+          <span class="bar" style="width:${Math.max(6,(beers[n]/max)*120)}px;"></span>
+          <span class="ct">${beers[n]} 🍺</span>
+        </div>`).join('');
+    }
+  }
+
+  // visa mitt eget antal
+  const name = myBeerName();
+  const myEl = document.getElementById('myBeerCount');
+  if(myEl) myEl.textContent = (name && beers[name]) ? beers[name] : 0;
+}
+
+
+/* ---------- NAME / SHARE / RESET ---------- */
+function saveName(){
+  state.name=document.getElementById('userName').value.trim();
+  try{ sessionStorage.setItem(NAME_KEY, state.name); }catch(e){}
+  if(state.name) toast('Hej '+state.name+'! 👋');
+}
+function shareLink(){
+  const url=window.location.href;
+  if(navigator.share){ navigator.share({title:'Midsommar på Södra Stavsudda',url}).catch(()=>{}); }
+  else if(navigator.clipboard){ navigator.clipboard.writeText(url).then(()=>toast('Länk kopierad! 🔗')); }
+  else { prompt('Kopiera länken:', url); }
+}
+async function resetAll(){
+  if(confirm('Nollställa HELA gänget tillbaka till ursprungsplanen? Detta påverkar allas vy.')){
+    const d = defaultState();
+    state.tasks = d.tasks; state.pack = d.pack;
+    if(planRef){ try{ await planRef.set(d); }catch(e){} }
+    renderTasks(); renderPack(); toast('Nollställt för alla 🌱');
+  }
+}
+
+/* ---------- COUNTDOWN ---------- */
+function renderCd(elId, target){
+  let diff=Math.max(0,target-Date.now());
+  const d=Math.floor(diff/86400000); diff-=d*86400000;
+  const h=Math.floor(diff/3600000); diff-=h*3600000;
+  const m=Math.floor(diff/60000); diff-=m*60000;
+  const s=Math.floor(diff/1000);
+  const units=[[d,'Dagar'],[h,'Timmar'],[m,'Min'],[s,'Sek']];
+  document.getElementById(elId).innerHTML=units.map(u=>
+    `<div class="cd-unit"><div class="cd-num">${u[0]}</div><div class="cd-cap">${u[1]}</div></div>`).join('');
+}
+function tickCountdown(){
+  renderCd('cdTimer1', new Date('2026-06-18T11:00:00+02:00').getTime());
+  renderCd('cdTimer2', new Date('2026-06-18T13:10:00+02:00').getTime());
+}
+
+/* ---------- UTIL ---------- */
+function escapeHtml(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+/* ---------- INIT ---------- */
+tickCountdown(); setInterval(tickCountdown,1000);
+renderSongs();
+
+(async function init(){
+  const list=document.getElementById('taskList');
+  if(list) list.innerHTML='<div style="padding:14px;color:var(--ink-soft);">Laddar gemensam plan… 🌼</div>';
+  // fyllemätaren: fyll dropdown med alla namn och förifyll mitt val
+  populateRoster();
+  try{
+    const bn = sessionStorage.getItem(BEER_NAME_KEY) || sessionStorage.getItem(NAME_KEY);
+    if(bn && ROSTER.includes(bn)) document.getElementById('beerNameInput').value = bn;
+  }catch(e){}
+  document.getElementById('beerNameInput').addEventListener('change', ()=>{
+    const n=myBeerName(); if(n){ try{sessionStorage.setItem(BEER_NAME_KEY,n);}catch(e){} }
+    renderBeer();
+  });
+  await loadState();
+  document.getElementById('userName').value = state.name || '';
+  renderTasks(); renderPack(); renderBeer();
+  // Firebase pushar andras ändringar live via planRef.on('value') – ingen polling behövs
+})();
+
+/* smooth nav scroll */
+document.querySelectorAll('nav a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
